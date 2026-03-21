@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['tones',['tones',['../struct_s_s_t_v_mode__t.html#a27c6a271c1aa8e499a31a784ab9254ad',1,'SSTVMode_t']]],
-  ['type',['type',['../structtone__t.html#a822ce54003924df3cc2e25a430657a56',1,'tone_t']]]
+  ['origin_0',['origin',['../struct_l_r11x0_wifi_result__t.html#aedbfd390bee0e0995321e0a5caedac53',1,'LR11x0WifiResult_t']]],
+  ['out_1',['out',['../class_radio_lib_c_r_c.html#a46616ef58e9eeeca646de0c9fe681050',1,'RadioLibCRC']]]
 ];
