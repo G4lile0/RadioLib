@@ -30,7 +30,13 @@ var hierarchy =
     [ "LoRaWANJoinEvent_t", "struct_lo_ra_w_a_n_join_event__t.html", null ],
     [ "LoRaWANMacCommand_t", "struct_lo_ra_w_a_n_mac_command__t.html", null ],
     [ "LoRaWANNode", "class_lo_ra_w_a_n_node.html", null ],
+    [ "LoRaWANPackage", "class_lo_ra_w_a_n_package.html", [
+      [ "LoRaWANPackageTS003", "class_lo_ra_w_a_n_package_t_s003.html", null ],
+      [ "LoRaWANPackageTS009", "class_lo_ra_w_a_n_package_t_s009.html", null ]
+    ] ],
     [ "LoRaWANPackage_t", "struct_lo_ra_w_a_n_package__t.html", null ],
+    [ "LoRaWANPackageManager", "class_lo_ra_w_a_n_package_manager.html", null ],
+    [ "LoRaWANTaskInfo", "struct_lo_ra_w_a_n_task_info.html", null ],
     [ "LR11x0GnssAlmanacStatus_t", "struct_l_r11x0_gnss_almanac_status__t.html", null ],
     [ "LR11x0GnssAlmanacStatusPart_t", "struct_l_r11x0_gnss_almanac_status_part__t.html", null ],
     [ "LR11x0GnssPosition_t", "struct_l_r11x0_gnss_position__t.html", null ],
@@ -49,6 +55,7 @@ var hierarchy =
     [ "Module", "class_module.html", [
       [ "STM32WLx_Module", "class_s_t_m32_w_lx___module.html", null ]
     ] ],
+    [ "MulticastGroup_t", "struct_multicast_group__t.html", null ],
     [ "PacketConfig_t", "union_packet_config__t.html", null ],
     [ "PagerClient", "class_pager_client.html", null ],
     [ "paTableEntry_t", "structpa_table_entry__t.html", null ],
@@ -102,7 +109,9 @@ var hierarchy =
       ] ],
       [ "nRF24", "classn_r_f24.html", null ]
     ] ],
-    [ "RadioLibAES128", "class_radio_lib_a_e_s128.html", null ],
+    [ "RadioLibAES128", "class_radio_lib_a_e_s128.html", [
+      [ "RadioLibSoftwareAES128", "class_radio_lib_software_a_e_s128.html", null ]
+    ] ],
     [ "RadioLibBCH", "class_radio_lib_b_c_h.html", null ],
     [ "RadioLibCmacState", "struct_radio_lib_cmac_state.html", null ],
     [ "RadioLibConvCode", "class_radio_lib_conv_code.html", null ],
