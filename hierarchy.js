@@ -6,14 +6,18 @@ var hierarchy =
       [ "BellClient", "class_bell_client.html", null ]
     ] ],
     [ "APRSClient", "class_a_p_r_s_client.html", null ],
-    [ "ArduinoHal", null, [
-      [ "Stm32wlxHal", "class_stm32wlx_hal.html", null ]
-    ] ],
     [ "AX25Client", "class_a_x25_client.html", null ],
     [ "AX25Frame", "class_a_x25_frame.html", null ],
     [ "BellModem_t", "struct_bell_modem__t.html", null ],
     [ "CADScanConfig_t", "struct_c_a_d_scan_config__t.html", null ],
     [ "ChannelScanConfig_t", "union_channel_scan_config__t.html", null ],
+    [ "ConfigBLE_t", "struct_config_b_l_e__t.html", null ],
+    [ "ConfigBPSK_t", "struct_config_b_p_s_k__t.html", null ],
+    [ "ConfigFLRC_t", "struct_config_f_l_r_c__t.html", null ],
+    [ "ConfigFSK_t", "struct_config_f_s_k__t.html", null ],
+    [ "ConfigLoRa_t", "struct_config_lo_ra__t.html", null ],
+    [ "ConfigLRFHSS_t", "struct_config_l_r_f_h_s_s__t.html", null ],
+    [ "ConfigOOK_t", "struct_config_o_o_k__t.html", null ],
     [ "DataRate_t", "union_data_rate__t.html", null ],
     [ "FSK4Client", "class_f_s_k4_client.html", null ],
     [ "FSKPacketConfig_t", "struct_f_s_k_packet_config__t.html", null ],
@@ -52,9 +56,7 @@ var hierarchy =
     [ "LR2021LrFhssHopTableEntry_t", "struct_l_r2021_lr_fhss_hop_table_entry__t.html", null ],
     [ "LrFhssPacketConfig_t", "struct_lr_fhss_packet_config__t.html", null ],
     [ "LrFhssRate_t", "struct_lr_fhss_rate__t.html", null ],
-    [ "Module", "class_module.html", [
-      [ "STM32WLx_Module", "class_s_t_m32_w_lx___module.html", null ]
-    ] ],
+    [ "Module", "class_module.html", null ],
     [ "MulticastGroup_t", "struct_multicast_group__t.html", null ],
     [ "PacketConfig_t", "union_packet_config__t.html", null ],
     [ "PagerClient", "class_pager_client.html", null ],
