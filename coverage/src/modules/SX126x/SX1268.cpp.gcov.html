@@ -31,13 +31,13 @@
             <td class="headerValue">lcov.info</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntry">24</td>
-            <td class="headerCovTableEntry">120</td>
-            <td class="headerCovTableEntryLo">20.0 %</td>
+            <td class="headerCovTableEntry">25</td>
+            <td class="headerCovTableEntry">121</td>
+            <td class="headerCovTableEntryLo">20.7 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2026-05-29 15:31:10</td>
+            <td class="headerValue">2026-07-06 21:53:10</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">7</td>
@@ -68,7 +68,7 @@
 <a name="6"><span class="lineNum">       6 </span>            : // this is a lookup table for optimized PA configuration</a>
 <a name="7"><span class="lineNum">       7 </span>            : // it was determined by testing in https://github.com/jgromes/RadioLib/issues/1628</a>
 <a name="8"><span class="lineNum">       8 </span>            : // see also https://github.com/radiolib-org/power-tests</a>
-<a name="9"><span class="lineNum">       9 </span>            : static const SX126x::paTableEntry_t paOptTable[32] = {</a>
+<a name="9"><span class="lineNum">       9 </span>            : static const SX126x::paTableEntry_t paOptimizedTable[RADIOLIB_SX126X_PA_TABLE_LEN] = {</a>
 <a name="10"><span class="lineNum">      10 </span>            :   { .paDutyCycle = 2, .hpMax = 1, .paVal = -3 },</a>
 <a name="11"><span class="lineNum">      11 </span>            :   { .paDutyCycle = 2, .hpMax = 1, .paVal = -2 },</a>
 <a name="12"><span class="lineNum">      12 </span>            :   { .paDutyCycle = 1, .hpMax = 1, .paVal = 0 },</a>
@@ -261,37 +261,38 @@
 <a name="199"><span class="lineNum">     199 </span><span class="lineCov">          1 :   RADIOLIB_ASSERT(state);</span></a>
 <a name="200"><span class="lineNum">     200 </span>            : </a>
 <a name="201"><span class="lineNum">     201 </span>            :   // set PA config</a>
-<a name="202"><span class="lineNum">     202 </span><span class="lineCov">          1 :   int8_t paVal = optimize ? paOptTable[power + 9].paVal : power;</span></a>
-<a name="203"><span class="lineNum">     203 </span><span class="lineCov">          1 :   uint8_t paDutyCycle = optimize ? paOptTable[power + 9].paDutyCycle : 0x04;</span></a>
-<a name="204"><span class="lineNum">     204 </span><span class="lineCov">          1 :   uint8_t hpMax = optimize ? paOptTable[power + 9].hpMax : 0x07;</span></a>
-<a name="205"><span class="lineNum">     205 </span><span class="lineCov">          1 :   return(SX126x::setOutputPower(paVal, paDutyCycle, hpMax, RADIOLIB_SX126X_PA_CONFIG_SX1268));</span></a>
-<a name="206"><span class="lineNum">     206 </span>            : }</a>
-<a name="207"><span class="lineNum">     207 </span>            : </a>
-<a name="208"><span class="lineNum">     208 </span><span class="lineCov">          2 : int16_t SX1268::checkOutputPower(int8_t power, int8_t* clipped) {</span></a>
-<a name="209"><span class="lineNum">     209 </span><span class="lineCov">          2 :   if(clipped) {</span></a>
-<a name="210"><span class="lineNum">     210 </span><span class="lineNoCov">          0 :     *clipped = RADIOLIB_MAX(-9, RADIOLIB_MIN(22, power));</span></a>
-<a name="211"><span class="lineNum">     211 </span>            :   }</a>
-<a name="212"><span class="lineNum">     212 </span><span class="lineCov">          2 :   RADIOLIB_CHECK_RANGE(power, -9, 22, RADIOLIB_ERR_INVALID_OUTPUT_POWER);</span></a>
-<a name="213"><span class="lineNum">     213 </span><span class="lineCov">          2 :   return(RADIOLIB_ERR_NONE);</span></a>
-<a name="214"><span class="lineNum">     214 </span>            : }</a>
-<a name="215"><span class="lineNum">     215 </span>            : </a>
-<a name="216"><span class="lineNum">     216 </span><span class="lineCov">          1 : int16_t SX1268::setModem(ModemType_t modem) {</span></a>
-<a name="217"><span class="lineNum">     217 </span><span class="lineCov">          1 :   switch(modem) {</span></a>
-<a name="218"><span class="lineNum">     218 </span><span class="lineNoCov">          0 :     case(ModemType_t::RADIOLIB_MODEM_LORA): {</span></a>
-<a name="219"><span class="lineNum">     219 </span><span class="lineNoCov">          0 :       return(this-&gt;begin());</span></a>
-<a name="220"><span class="lineNum">     220 </span>            :     } break;</a>
-<a name="221"><span class="lineNum">     221 </span><span class="lineNoCov">          0 :     case(ModemType_t::RADIOLIB_MODEM_FSK): {</span></a>
-<a name="222"><span class="lineNum">     222 </span><span class="lineNoCov">          0 :       return(this-&gt;beginFSK());</span></a>
-<a name="223"><span class="lineNum">     223 </span>            :     } break;</a>
-<a name="224"><span class="lineNum">     224 </span><span class="lineNoCov">          0 :     case(ModemType_t::RADIOLIB_MODEM_LRFHSS): {</span></a>
-<a name="225"><span class="lineNum">     225 </span><span class="lineNoCov">          0 :       return(this-&gt;beginLRFHSS());</span></a>
-<a name="226"><span class="lineNum">     226 </span>            :     } break;</a>
-<a name="227"><span class="lineNum">     227 </span><span class="lineCov">          1 :     default:</span></a>
-<a name="228"><span class="lineNum">     228 </span><span class="lineCov">          1 :       return(RADIOLIB_ERR_WRONG_MODEM);</span></a>
-<a name="229"><span class="lineNum">     229 </span>            :   }</a>
-<a name="230"><span class="lineNum">     230 </span>            : }</a>
-<a name="231"><span class="lineNum">     231 </span>            : </a>
-<a name="232"><span class="lineNum">     232 </span>            : #endif</a>
+<a name="202"><span class="lineNum">     202 </span><span class="lineCov">          1 :   SX126x::paTableEntry_t* paTable = this-&gt;paOptTable ? this-&gt;paOptTable : const_cast&lt;SX126x::paTableEntry_t*&gt;(paOptimizedTable);</span></a>
+<a name="203"><span class="lineNum">     203 </span><span class="lineCov">          1 :   int8_t paVal = optimize ? paTable[power + 9].paVal : power;</span></a>
+<a name="204"><span class="lineNum">     204 </span><span class="lineCov">          1 :   uint8_t paDutyCycle = optimize ? paTable[power + 9].paDutyCycle : 0x04;</span></a>
+<a name="205"><span class="lineNum">     205 </span><span class="lineCov">          1 :   uint8_t hpMax = optimize ? paTable[power + 9].hpMax : 0x07;</span></a>
+<a name="206"><span class="lineNum">     206 </span><span class="lineCov">          1 :   return(SX126x::setOutputPower(paVal, paDutyCycle, hpMax, RADIOLIB_SX126X_PA_CONFIG_SX1268));</span></a>
+<a name="207"><span class="lineNum">     207 </span>            : }</a>
+<a name="208"><span class="lineNum">     208 </span>            : </a>
+<a name="209"><span class="lineNum">     209 </span><span class="lineCov">          2 : int16_t SX1268::checkOutputPower(int8_t power, int8_t* clipped) {</span></a>
+<a name="210"><span class="lineNum">     210 </span><span class="lineCov">          2 :   if(clipped) {</span></a>
+<a name="211"><span class="lineNum">     211 </span><span class="lineNoCov">          0 :     *clipped = RADIOLIB_MAX(-9, RADIOLIB_MIN(22, power));</span></a>
+<a name="212"><span class="lineNum">     212 </span>            :   }</a>
+<a name="213"><span class="lineNum">     213 </span><span class="lineCov">          2 :   RADIOLIB_CHECK_RANGE(power, -9, 22, RADIOLIB_ERR_INVALID_OUTPUT_POWER);</span></a>
+<a name="214"><span class="lineNum">     214 </span><span class="lineCov">          2 :   return(RADIOLIB_ERR_NONE);</span></a>
+<a name="215"><span class="lineNum">     215 </span>            : }</a>
+<a name="216"><span class="lineNum">     216 </span>            : </a>
+<a name="217"><span class="lineNum">     217 </span><span class="lineCov">          1 : int16_t SX1268::setModem(ModemType_t modem) {</span></a>
+<a name="218"><span class="lineNum">     218 </span><span class="lineCov">          1 :   switch(modem) {</span></a>
+<a name="219"><span class="lineNum">     219 </span><span class="lineNoCov">          0 :     case(ModemType_t::RADIOLIB_MODEM_LORA): {</span></a>
+<a name="220"><span class="lineNum">     220 </span><span class="lineNoCov">          0 :       return(this-&gt;begin());</span></a>
+<a name="221"><span class="lineNum">     221 </span>            :     } break;</a>
+<a name="222"><span class="lineNum">     222 </span><span class="lineNoCov">          0 :     case(ModemType_t::RADIOLIB_MODEM_FSK): {</span></a>
+<a name="223"><span class="lineNum">     223 </span><span class="lineNoCov">          0 :       return(this-&gt;beginFSK());</span></a>
+<a name="224"><span class="lineNum">     224 </span>            :     } break;</a>
+<a name="225"><span class="lineNum">     225 </span><span class="lineNoCov">          0 :     case(ModemType_t::RADIOLIB_MODEM_LRFHSS): {</span></a>
+<a name="226"><span class="lineNum">     226 </span><span class="lineNoCov">          0 :       return(this-&gt;beginLRFHSS());</span></a>
+<a name="227"><span class="lineNum">     227 </span>            :     } break;</a>
+<a name="228"><span class="lineNum">     228 </span><span class="lineCov">          1 :     default:</span></a>
+<a name="229"><span class="lineNum">     229 </span><span class="lineCov">          1 :       return(RADIOLIB_ERR_WRONG_MODEM);</span></a>
+<a name="230"><span class="lineNum">     230 </span>            :   }</a>
+<a name="231"><span class="lineNum">     231 </span>            : }</a>
+<a name="232"><span class="lineNum">     232 </span>            : </a>
+<a name="233"><span class="lineNum">     233 </span>            : #endif</a>
 </pre>
       </td>
     </tr>

@@ -32,17 +32,17 @@
             <td></td>
             <td class="headerItem">Lines:</td>
             <td class="headerCovTableEntry">43</td>
-            <td class="headerCovTableEntry">440</td>
-            <td class="headerCovTableEntryLo">9.8 %</td>
+            <td class="headerCovTableEntry">449</td>
+            <td class="headerCovTableEntryLo">9.6 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2026-05-29 15:31:10</td>
+            <td class="headerValue">2026-07-06 21:53:10</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">11</td>
-            <td class="headerCovTableEntry">46</td>
-            <td class="headerCovTableEntryLo">23.9 %</td>
+            <td class="headerCovTableEntry">48</td>
+            <td class="headerCovTableEntryLo">22.9 %</td>
           </tr>
           <tr><td><img src="../../../glass.png" width=3 height=3 alt=""></td></tr>
         </table>
@@ -359,7 +359,7 @@
 <a name="297"><span class="lineNum">     297 </span><span class="lineNoCov">          0 :     RADIOLIB_ASSERT(state);</span></a>
 <a name="298"><span class="lineNum">     298 </span>            : </a>
 <a name="299"><span class="lineNum">     299 </span>            :     // set hopping grid</a>
-<a name="300"><span class="lineNum">     300 </span><span class="lineNoCov">          0 :     this-&gt;lrFhssGridNonFcc = dr.lrFhss.narrowGrid ? RADIOLIB_SX126X_LR_FHSS_GRID_STEP_NON_FCC : RADIOLIB_SX126X_LR_FHSS_GRID_STEP_FCC;</span></a>
+<a name="300"><span class="lineNum">     300 </span><span class="lineNoCov">          0 :     this-&gt;lrFhssGridNonFcc = dr.lrFhss.narrowGrid;</span></a>
 <a name="301"><span class="lineNum">     301 </span>            : </a>
 <a name="302"><span class="lineNum">     302 </span>            :   }</a>
 <a name="303"><span class="lineNum">     303 </span>            : </a>
@@ -726,171 +726,190 @@
 <a name="664"><span class="lineNum">     664 </span>            : </a>
 <a name="665"><span class="lineNum">     665 </span><span class="lineNoCov">          0 : int16_t SX126x::setTCXO(float voltage, uint32_t delay) {</span></a>
 <a name="666"><span class="lineNum">     666 </span>            :   // set mode to standby</a>
-<a name="667"><span class="lineNum">     667 </span><span class="lineNoCov">          0 :   standby();</span></a>
-<a name="668"><span class="lineNum">     668 </span>            : </a>
-<a name="669"><span class="lineNum">     669 </span>            :   // check RADIOLIB_SX126X_XOSC_START_ERR flag and clear it</a>
-<a name="670"><span class="lineNum">     670 </span><span class="lineNoCov">          0 :   if(getDeviceErrors() &amp; RADIOLIB_SX126X_XOSC_START_ERR) {</span></a>
-<a name="671"><span class="lineNum">     671 </span><span class="lineNoCov">          0 :     clearDeviceErrors();</span></a>
-<a name="672"><span class="lineNum">     672 </span>            :   }</a>
-<a name="673"><span class="lineNum">     673 </span>            : </a>
-<a name="674"><span class="lineNum">     674 </span>            :   // check 0 V disable</a>
-<a name="675"><span class="lineNum">     675 </span><span class="lineNoCov">          0 :   if(fabsf(voltage - 0.0f) &lt;= 0.001f) {</span></a>
-<a name="676"><span class="lineNum">     676 </span><span class="lineNoCov">          0 :     return(reset(true));</span></a>
-<a name="677"><span class="lineNum">     677 </span>            :   }</a>
-<a name="678"><span class="lineNum">     678 </span>            : </a>
-<a name="679"><span class="lineNum">     679 </span>            :   // check allowed voltage values</a>
-<a name="680"><span class="lineNum">     680 </span>            :   uint8_t data[4];</a>
-<a name="681"><span class="lineNum">     681 </span><span class="lineNoCov">          0 :   if(fabsf(voltage - 1.6f) &lt;= 0.001f) {</span></a>
-<a name="682"><span class="lineNum">     682 </span><span class="lineNoCov">          0 :     data[0] = RADIOLIB_SX126X_DIO3_OUTPUT_1_6;</span></a>
-<a name="683"><span class="lineNum">     683 </span><span class="lineNoCov">          0 :   } else if(fabsf(voltage - 1.7f) &lt;= 0.001f) {</span></a>
-<a name="684"><span class="lineNum">     684 </span><span class="lineNoCov">          0 :     data[0] = RADIOLIB_SX126X_DIO3_OUTPUT_1_7;</span></a>
-<a name="685"><span class="lineNum">     685 </span><span class="lineNoCov">          0 :   } else if(fabsf(voltage - 1.8f) &lt;= 0.001f) {</span></a>
-<a name="686"><span class="lineNum">     686 </span><span class="lineNoCov">          0 :     data[0] = RADIOLIB_SX126X_DIO3_OUTPUT_1_8;</span></a>
-<a name="687"><span class="lineNum">     687 </span><span class="lineNoCov">          0 :   } else if(fabsf(voltage - 2.2f) &lt;= 0.001f) {</span></a>
-<a name="688"><span class="lineNum">     688 </span><span class="lineNoCov">          0 :     data[0] = RADIOLIB_SX126X_DIO3_OUTPUT_2_2;</span></a>
-<a name="689"><span class="lineNum">     689 </span><span class="lineNoCov">          0 :   } else if(fabsf(voltage - 2.4f) &lt;= 0.001f) {</span></a>
-<a name="690"><span class="lineNum">     690 </span><span class="lineNoCov">          0 :     data[0] = RADIOLIB_SX126X_DIO3_OUTPUT_2_4;</span></a>
-<a name="691"><span class="lineNum">     691 </span><span class="lineNoCov">          0 :   } else if(fabsf(voltage - 2.7f) &lt;= 0.001f) {</span></a>
-<a name="692"><span class="lineNum">     692 </span><span class="lineNoCov">          0 :     data[0] = RADIOLIB_SX126X_DIO3_OUTPUT_2_7;</span></a>
-<a name="693"><span class="lineNum">     693 </span><span class="lineNoCov">          0 :   } else if(fabsf(voltage - 3.0f) &lt;= 0.001f) {</span></a>
-<a name="694"><span class="lineNum">     694 </span><span class="lineNoCov">          0 :     data[0] = RADIOLIB_SX126X_DIO3_OUTPUT_3_0;</span></a>
-<a name="695"><span class="lineNum">     695 </span><span class="lineNoCov">          0 :   } else if(fabsf(voltage - 3.3f) &lt;= 0.001f) {</span></a>
-<a name="696"><span class="lineNum">     696 </span><span class="lineNoCov">          0 :     data[0] = RADIOLIB_SX126X_DIO3_OUTPUT_3_3;</span></a>
-<a name="697"><span class="lineNum">     697 </span>            :   } else {</a>
-<a name="698"><span class="lineNum">     698 </span><span class="lineNoCov">          0 :     return(RADIOLIB_ERR_INVALID_TCXO_VOLTAGE);</span></a>
-<a name="699"><span class="lineNum">     699 </span>            :   }</a>
-<a name="700"><span class="lineNum">     700 </span>            : </a>
-<a name="701"><span class="lineNum">     701 </span>            :   // calculate delay</a>
-<a name="702"><span class="lineNum">     702 </span><span class="lineNoCov">          0 :   uint32_t delayValue = (float)delay / 15.625f;</span></a>
-<a name="703"><span class="lineNum">     703 </span><span class="lineNoCov">          0 :   data[1] = (uint8_t)((delayValue &gt;&gt; 16) &amp; 0xFF);</span></a>
-<a name="704"><span class="lineNum">     704 </span><span class="lineNoCov">          0 :   data[2] = (uint8_t)((delayValue &gt;&gt; 8) &amp; 0xFF);</span></a>
-<a name="705"><span class="lineNum">     705 </span><span class="lineNoCov">          0 :   data[3] = (uint8_t)(delayValue &amp; 0xFF);</span></a>
-<a name="706"><span class="lineNum">     706 </span>            : </a>
-<a name="707"><span class="lineNum">     707 </span><span class="lineNoCov">          0 :   this-&gt;tcxoDelay = delay;</span></a>
+<a name="667"><span class="lineNum">     667 </span>            :   // force RC oscillator - typically this is called on startup,</a>
+<a name="668"><span class="lineNum">     668 </span>            :   // so we cannot rely on what the user may have provided</a>
+<a name="669"><span class="lineNum">     669 </span><span class="lineNoCov">          0 :   (void)standby(RADIOLIB_SX126X_STANDBY_RC);</span></a>
+<a name="670"><span class="lineNum">     670 </span>            : </a>
+<a name="671"><span class="lineNum">     671 </span>            :   // check RADIOLIB_SX126X_XOSC_START_ERR flag and clear it</a>
+<a name="672"><span class="lineNum">     672 </span><span class="lineNoCov">          0 :   if(getDeviceErrors() &amp; RADIOLIB_SX126X_XOSC_START_ERR) {</span></a>
+<a name="673"><span class="lineNum">     673 </span><span class="lineNoCov">          0 :     clearDeviceErrors();</span></a>
+<a name="674"><span class="lineNum">     674 </span>            :   }</a>
+<a name="675"><span class="lineNum">     675 </span>            : </a>
+<a name="676"><span class="lineNum">     676 </span>            :   // check 0 V disable</a>
+<a name="677"><span class="lineNum">     677 </span><span class="lineNoCov">          0 :   if(fabsf(voltage - 0.0f) &lt;= 0.001f) {</span></a>
+<a name="678"><span class="lineNum">     678 </span><span class="lineNoCov">          0 :     return(reset(true));</span></a>
+<a name="679"><span class="lineNum">     679 </span>            :   }</a>
+<a name="680"><span class="lineNum">     680 </span>            : </a>
+<a name="681"><span class="lineNum">     681 </span>            :   // check allowed voltage values</a>
+<a name="682"><span class="lineNum">     682 </span>            :   uint8_t data[4];</a>
+<a name="683"><span class="lineNum">     683 </span><span class="lineNoCov">          0 :   if(fabsf(voltage - 1.6f) &lt;= 0.001f) {</span></a>
+<a name="684"><span class="lineNum">     684 </span><span class="lineNoCov">          0 :     data[0] = RADIOLIB_SX126X_DIO3_OUTPUT_1_6;</span></a>
+<a name="685"><span class="lineNum">     685 </span><span class="lineNoCov">          0 :   } else if(fabsf(voltage - 1.7f) &lt;= 0.001f) {</span></a>
+<a name="686"><span class="lineNum">     686 </span><span class="lineNoCov">          0 :     data[0] = RADIOLIB_SX126X_DIO3_OUTPUT_1_7;</span></a>
+<a name="687"><span class="lineNum">     687 </span><span class="lineNoCov">          0 :   } else if(fabsf(voltage - 1.8f) &lt;= 0.001f) {</span></a>
+<a name="688"><span class="lineNum">     688 </span><span class="lineNoCov">          0 :     data[0] = RADIOLIB_SX126X_DIO3_OUTPUT_1_8;</span></a>
+<a name="689"><span class="lineNum">     689 </span><span class="lineNoCov">          0 :   } else if(fabsf(voltage - 2.2f) &lt;= 0.001f) {</span></a>
+<a name="690"><span class="lineNum">     690 </span><span class="lineNoCov">          0 :     data[0] = RADIOLIB_SX126X_DIO3_OUTPUT_2_2;</span></a>
+<a name="691"><span class="lineNum">     691 </span><span class="lineNoCov">          0 :   } else if(fabsf(voltage - 2.4f) &lt;= 0.001f) {</span></a>
+<a name="692"><span class="lineNum">     692 </span><span class="lineNoCov">          0 :     data[0] = RADIOLIB_SX126X_DIO3_OUTPUT_2_4;</span></a>
+<a name="693"><span class="lineNum">     693 </span><span class="lineNoCov">          0 :   } else if(fabsf(voltage - 2.7f) &lt;= 0.001f) {</span></a>
+<a name="694"><span class="lineNum">     694 </span><span class="lineNoCov">          0 :     data[0] = RADIOLIB_SX126X_DIO3_OUTPUT_2_7;</span></a>
+<a name="695"><span class="lineNum">     695 </span><span class="lineNoCov">          0 :   } else if(fabsf(voltage - 3.0f) &lt;= 0.001f) {</span></a>
+<a name="696"><span class="lineNum">     696 </span><span class="lineNoCov">          0 :     data[0] = RADIOLIB_SX126X_DIO3_OUTPUT_3_0;</span></a>
+<a name="697"><span class="lineNum">     697 </span><span class="lineNoCov">          0 :   } else if(fabsf(voltage - 3.3f) &lt;= 0.001f) {</span></a>
+<a name="698"><span class="lineNum">     698 </span><span class="lineNoCov">          0 :     data[0] = RADIOLIB_SX126X_DIO3_OUTPUT_3_3;</span></a>
+<a name="699"><span class="lineNum">     699 </span>            :   } else {</a>
+<a name="700"><span class="lineNum">     700 </span><span class="lineNoCov">          0 :     return(RADIOLIB_ERR_INVALID_TCXO_VOLTAGE);</span></a>
+<a name="701"><span class="lineNum">     701 </span>            :   }</a>
+<a name="702"><span class="lineNum">     702 </span>            : </a>
+<a name="703"><span class="lineNum">     703 </span>            :   // calculate delay</a>
+<a name="704"><span class="lineNum">     704 </span><span class="lineNoCov">          0 :   uint32_t delayValue = (float)delay / 15.625f;</span></a>
+<a name="705"><span class="lineNum">     705 </span><span class="lineNoCov">          0 :   data[1] = (uint8_t)((delayValue &gt;&gt; 16) &amp; 0xFF);</span></a>
+<a name="706"><span class="lineNum">     706 </span><span class="lineNoCov">          0 :   data[2] = (uint8_t)((delayValue &gt;&gt; 8) &amp; 0xFF);</span></a>
+<a name="707"><span class="lineNum">     707 </span><span class="lineNoCov">          0 :   data[3] = (uint8_t)(delayValue &amp; 0xFF);</span></a>
 <a name="708"><span class="lineNum">     708 </span>            : </a>
-<a name="709"><span class="lineNum">     709 </span>            :   // enable TCXO control on DIO3</a>
-<a name="710"><span class="lineNum">     710 </span><span class="lineNoCov">          0 :   return(this-&gt;mod-&gt;SPIwriteStream(RADIOLIB_SX126X_CMD_SET_DIO3_AS_TCXO_CTRL, data, 4));</span></a>
-<a name="711"><span class="lineNum">     711 </span>            : }</a>
-<a name="712"><span class="lineNum">     712 </span>            : </a>
-<a name="713"><span class="lineNum">     713 </span><span class="lineNoCov">          0 : int16_t SX126x::setDio2AsRfSwitch(bool enable) {</span></a>
-<a name="714"><span class="lineNum">     714 </span><span class="lineNoCov">          0 :   this-&gt;dio2RfSwitch = enable;</span></a>
-<a name="715"><span class="lineNum">     715 </span><span class="lineNoCov">          0 :   uint8_t data = enable ? RADIOLIB_SX126X_DIO2_AS_RF_SWITCH : RADIOLIB_SX126X_DIO2_AS_IRQ;</span></a>
-<a name="716"><span class="lineNum">     716 </span><span class="lineNoCov">          0 :   return(this-&gt;mod-&gt;SPIwriteStream(RADIOLIB_SX126X_CMD_SET_DIO2_AS_RF_SWITCH_CTRL, &amp;data, 1));</span></a>
-<a name="717"><span class="lineNum">     717 </span>            : }</a>
-<a name="718"><span class="lineNum">     718 </span>            : </a>
-<a name="719"><span class="lineNum">     719 </span><span class="lineNoCov">          0 : int16_t SX126x::setPaRampTime(uint8_t rampTime) {</span></a>
-<a name="720"><span class="lineNum">     720 </span><span class="lineNoCov">          0 :   return(this-&gt;setTxParams(this-&gt;pwr, rampTime));</span></a>
-<a name="721"><span class="lineNum">     721 </span>            : }</a>
-<a name="722"><span class="lineNum">     722 </span>            : </a>
-<a name="723"><span class="lineNum">     723 </span><span class="lineCov">          2 : int16_t SX126x::setOutputPower(int8_t power, uint8_t paDutyCycle, uint8_t hpMax, uint8_t deviceSel) {</span></a>
-<a name="724"><span class="lineNum">     724 </span>            :   // get current OCP configuration</a>
-<a name="725"><span class="lineNum">     725 </span><span class="lineCov">          2 :   uint8_t ocp = 0;</span></a>
-<a name="726"><span class="lineNum">     726 </span><span class="lineCov">          2 :   int16_t state = readRegister(RADIOLIB_SX126X_REG_OCP_CONFIGURATION, &amp;ocp, 1);</span></a>
-<a name="727"><span class="lineNum">     727 </span><span class="lineCov">          2 :   RADIOLIB_ASSERT(state);</span></a>
-<a name="728"><span class="lineNum">     728 </span>            : </a>
-<a name="729"><span class="lineNum">     729 </span>            :   // set PA config</a>
-<a name="730"><span class="lineNum">     730 </span><span class="lineNoCov">          0 :   state = SX126x::setPaConfig(paDutyCycle, deviceSel, hpMax);</span></a>
-<a name="731"><span class="lineNum">     731 </span><span class="lineNoCov">          0 :   RADIOLIB_ASSERT(state);</span></a>
-<a name="732"><span class="lineNum">     732 </span>            : </a>
-<a name="733"><span class="lineNum">     733 </span>            :   // set output power with default 200us ramp</a>
-<a name="734"><span class="lineNum">     734 </span><span class="lineNoCov">          0 :   state = SX126x::setTxParams(power, RADIOLIB_SX126X_PA_RAMP_200U);</span></a>
-<a name="735"><span class="lineNum">     735 </span><span class="lineNoCov">          0 :   RADIOLIB_ASSERT(state);</span></a>
-<a name="736"><span class="lineNum">     736 </span>            : </a>
-<a name="737"><span class="lineNum">     737 </span>            :   // restore OCP configuration</a>
-<a name="738"><span class="lineNum">     738 </span><span class="lineNoCov">          0 :   return(writeRegister(RADIOLIB_SX126X_REG_OCP_CONFIGURATION, &amp;ocp, 1));</span></a>
-<a name="739"><span class="lineNum">     739 </span>            : }</a>
-<a name="740"><span class="lineNum">     740 </span>            : </a>
-<a name="741"><span class="lineNum">     741 </span><span class="lineNoCov">          0 : int16_t SX126x::setPacketMode(uint8_t mode, uint8_t len) {</span></a>
-<a name="742"><span class="lineNum">     742 </span>            :   // check active modem</a>
-<a name="743"><span class="lineNum">     743 </span><span class="lineNoCov">          0 :   if(getPacketType() != RADIOLIB_SX126X_PACKET_TYPE_GFSK) {</span></a>
-<a name="744"><span class="lineNum">     744 </span><span class="lineNoCov">          0 :     return(RADIOLIB_ERR_WRONG_MODEM);</span></a>
-<a name="745"><span class="lineNum">     745 </span>            :   }</a>
+<a name="709"><span class="lineNum">     709 </span><span class="lineNoCov">          0 :   this-&gt;tcxoDelay = delay;</span></a>
+<a name="710"><span class="lineNum">     710 </span>            : </a>
+<a name="711"><span class="lineNum">     711 </span>            :   // enable TCXO control on DIO3</a>
+<a name="712"><span class="lineNum">     712 </span><span class="lineNoCov">          0 :   return(this-&gt;mod-&gt;SPIwriteStream(RADIOLIB_SX126X_CMD_SET_DIO3_AS_TCXO_CTRL, data, 4));</span></a>
+<a name="713"><span class="lineNum">     713 </span>            : }</a>
+<a name="714"><span class="lineNum">     714 </span>            : </a>
+<a name="715"><span class="lineNum">     715 </span><span class="lineNoCov">          0 : int16_t SX126x::setDio2AsRfSwitch(bool enable) {</span></a>
+<a name="716"><span class="lineNum">     716 </span><span class="lineNoCov">          0 :   this-&gt;dio2RfSwitch = enable;</span></a>
+<a name="717"><span class="lineNum">     717 </span><span class="lineNoCov">          0 :   uint8_t data = enable ? RADIOLIB_SX126X_DIO2_AS_RF_SWITCH : RADIOLIB_SX126X_DIO2_AS_IRQ;</span></a>
+<a name="718"><span class="lineNum">     718 </span><span class="lineNoCov">          0 :   return(this-&gt;mod-&gt;SPIwriteStream(RADIOLIB_SX126X_CMD_SET_DIO2_AS_RF_SWITCH_CTRL, &amp;data, 1));</span></a>
+<a name="719"><span class="lineNum">     719 </span>            : }</a>
+<a name="720"><span class="lineNum">     720 </span>            : </a>
+<a name="721"><span class="lineNum">     721 </span><span class="lineNoCov">          0 : int16_t SX126x::setPaRampTime(uint8_t rampTime) {</span></a>
+<a name="722"><span class="lineNum">     722 </span><span class="lineNoCov">          0 :   return(this-&gt;setTxParams(this-&gt;pwr, rampTime));</span></a>
+<a name="723"><span class="lineNum">     723 </span>            : }</a>
+<a name="724"><span class="lineNum">     724 </span>            : </a>
+<a name="725"><span class="lineNum">     725 </span><span class="lineCov">          2 : int16_t SX126x::setOutputPower(int8_t power, uint8_t paDutyCycle, uint8_t hpMax, uint8_t deviceSel) {</span></a>
+<a name="726"><span class="lineNum">     726 </span>            :   // get current OCP configuration</a>
+<a name="727"><span class="lineNum">     727 </span><span class="lineCov">          2 :   uint8_t ocp = 0;</span></a>
+<a name="728"><span class="lineNum">     728 </span><span class="lineCov">          2 :   int16_t state = readRegister(RADIOLIB_SX126X_REG_OCP_CONFIGURATION, &amp;ocp, 1);</span></a>
+<a name="729"><span class="lineNum">     729 </span><span class="lineCov">          2 :   RADIOLIB_ASSERT(state);</span></a>
+<a name="730"><span class="lineNum">     730 </span>            : </a>
+<a name="731"><span class="lineNum">     731 </span>            :   // set PA config</a>
+<a name="732"><span class="lineNum">     732 </span><span class="lineNoCov">          0 :   state = SX126x::setPaConfig(paDutyCycle, deviceSel, hpMax);</span></a>
+<a name="733"><span class="lineNum">     733 </span><span class="lineNoCov">          0 :   RADIOLIB_ASSERT(state);</span></a>
+<a name="734"><span class="lineNum">     734 </span>            : </a>
+<a name="735"><span class="lineNum">     735 </span>            :   // set output power with default 200us ramp</a>
+<a name="736"><span class="lineNum">     736 </span><span class="lineNoCov">          0 :   state = SX126x::setTxParams(power, RADIOLIB_SX126X_PA_RAMP_200U);</span></a>
+<a name="737"><span class="lineNum">     737 </span><span class="lineNoCov">          0 :   RADIOLIB_ASSERT(state);</span></a>
+<a name="738"><span class="lineNum">     738 </span>            : </a>
+<a name="739"><span class="lineNum">     739 </span>            :   // restore OCP configuration</a>
+<a name="740"><span class="lineNum">     740 </span><span class="lineNoCov">          0 :   return(writeRegister(RADIOLIB_SX126X_REG_OCP_CONFIGURATION, &amp;ocp, 1));</span></a>
+<a name="741"><span class="lineNum">     741 </span>            : }</a>
+<a name="742"><span class="lineNum">     742 </span>            : </a>
+<a name="743"><span class="lineNum">     743 </span><span class="lineNoCov">          0 : void SX126x::setPaTable(SX126x::paTableEntry_t* table) {</span></a>
+<a name="744"><span class="lineNum">     744 </span><span class="lineNoCov">          0 :   this-&gt;paOptTable = table;</span></a>
+<a name="745"><span class="lineNum">     745 </span><span class="lineNoCov">          0 : }</span></a>
 <a name="746"><span class="lineNum">     746 </span>            : </a>
-<a name="747"><span class="lineNum">     747 </span>            :   // set requested packet mode</a>
-<a name="748"><span class="lineNum">     748 </span><span class="lineNoCov">          0 :   int16_t state = setPacketParamsFSK(this-&gt;preambleLengthFSK, this-&gt;preambleDetLength, this-&gt;crcTypeFSK, this-&gt;syncWordLength, RADIOLIB_SX126X_GFSK_ADDRESS_FILT_OFF, this-&gt;whitening, mode, len);</span></a>
-<a name="749"><span class="lineNum">     749 </span><span class="lineNoCov">          0 :   RADIOLIB_ASSERT(state);</span></a>
+<a name="747"><span class="lineNum">     747 </span><span class="lineNoCov">          0 : int16_t SX126x::setStandbyXOSC(bool enable) {</span></a>
+<a name="748"><span class="lineNum">     748 </span>            :   // set the internal variable</a>
+<a name="749"><span class="lineNum">     749 </span><span class="lineNoCov">          0 :   this-&gt;standbyXOSC = enable;</span></a>
 <a name="750"><span class="lineNum">     750 </span>            : </a>
-<a name="751"><span class="lineNum">     751 </span>            :   // update cached value</a>
-<a name="752"><span class="lineNum">     752 </span><span class="lineNoCov">          0 :   this-&gt;packetType = mode;</span></a>
-<a name="753"><span class="lineNum">     753 </span><span class="lineNoCov">          0 :   this-&gt;implicitLen = len;</span></a>
-<a name="754"><span class="lineNum">     754 </span><span class="lineNoCov">          0 :   return(state);</span></a>
-<a name="755"><span class="lineNum">     755 </span>            : }</a>
-<a name="756"><span class="lineNum">     756 </span>            : </a>
-<a name="757"><span class="lineNum">     757 </span><span class="lineNoCov">          0 : int16_t SX126x::setHeaderType(uint8_t hdrType, size_t len) {</span></a>
-<a name="758"><span class="lineNum">     758 </span>            :   // check active modem</a>
-<a name="759"><span class="lineNum">     759 </span><span class="lineNoCov">          0 :   if(getPacketType() != RADIOLIB_SX126X_PACKET_TYPE_LORA) {</span></a>
-<a name="760"><span class="lineNum">     760 </span><span class="lineNoCov">          0 :     return(RADIOLIB_ERR_WRONG_MODEM);</span></a>
-<a name="761"><span class="lineNum">     761 </span>            :   }</a>
-<a name="762"><span class="lineNum">     762 </span>            : </a>
-<a name="763"><span class="lineNum">     763 </span>            :   // set requested packet mode</a>
-<a name="764"><span class="lineNum">     764 </span><span class="lineNoCov">          0 :   int16_t state = setPacketParams(this-&gt;preambleLengthLoRa, this-&gt;crcTypeLoRa, len, hdrType, this-&gt;invertIQEnabled);</span></a>
-<a name="765"><span class="lineNum">     765 </span><span class="lineNoCov">          0 :   RADIOLIB_ASSERT(state);</span></a>
-<a name="766"><span class="lineNum">     766 </span>            : </a>
-<a name="767"><span class="lineNum">     767 </span>            :   // update cached value</a>
-<a name="768"><span class="lineNum">     768 </span><span class="lineNoCov">          0 :   this-&gt;headerType = hdrType;</span></a>
-<a name="769"><span class="lineNum">     769 </span><span class="lineNoCov">          0 :   this-&gt;implicitLen = len;</span></a>
-<a name="770"><span class="lineNum">     770 </span>            : </a>
-<a name="771"><span class="lineNum">     771 </span><span class="lineNoCov">          0 :   return(state);</span></a>
-<a name="772"><span class="lineNum">     772 </span>            : }</a>
-<a name="773"><span class="lineNum">     773 </span>            : </a>
-<a name="774"><span class="lineNum">     774 </span><span class="lineNoCov">          0 : int16_t SX126x::setFrequencyRaw(float freq) {</span></a>
-<a name="775"><span class="lineNum">     775 </span>            :   // calculate raw value</a>
-<a name="776"><span class="lineNum">     776 </span><span class="lineNoCov">          0 :   this-&gt;freqMHz = freq;</span></a>
-<a name="777"><span class="lineNum">     777 </span><span class="lineNoCov">          0 :   uint32_t frf = (this-&gt;freqMHz * (uint32_t(1) &lt;&lt; RADIOLIB_SX126X_DIV_EXPONENT)) / RADIOLIB_SX126X_CRYSTAL_FREQ;</span></a>
-<a name="778"><span class="lineNum">     778 </span><span class="lineNoCov">          0 :   return(setRfFrequency(frf));</span></a>
-<a name="779"><span class="lineNum">     779 </span>            : }</a>
-<a name="780"><span class="lineNum">     780 </span>            : </a>
-<a name="781"><span class="lineNum">     781 </span><span class="lineNoCov">          0 : int16_t SX126x::config(uint8_t modem) {</span></a>
-<a name="782"><span class="lineNum">     782 </span>            :   // reset buffer base address</a>
-<a name="783"><span class="lineNum">     783 </span>            :   int16_t state;</a>
-<a name="784"><span class="lineNum">     784 </span><span class="lineNoCov">          0 :   if(this-&gt;resetOnStartup) {</span></a>
-<a name="785"><span class="lineNum">     785 </span><span class="lineNoCov">          0 :     state = setBufferBaseAddress();</span></a>
-<a name="786"><span class="lineNum">     786 </span><span class="lineNoCov">          0 :     RADIOLIB_ASSERT(state);</span></a>
-<a name="787"><span class="lineNum">     787 </span>            :   }</a>
-<a name="788"><span class="lineNum">     788 </span>            : </a>
-<a name="789"><span class="lineNum">     789 </span>            :   // set modem</a>
-<a name="790"><span class="lineNum">     790 </span>            :   uint8_t data[7];</a>
-<a name="791"><span class="lineNum">     791 </span><span class="lineNoCov">          0 :   data[0] = modem;</span></a>
-<a name="792"><span class="lineNum">     792 </span><span class="lineNoCov">          0 :   state = this-&gt;mod-&gt;SPIwriteStream(RADIOLIB_SX126X_CMD_SET_PACKET_TYPE, data, 1);</span></a>
-<a name="793"><span class="lineNum">     793 </span><span class="lineNoCov">          0 :   RADIOLIB_ASSERT(state);</span></a>
-<a name="794"><span class="lineNum">     794 </span>            : </a>
-<a name="795"><span class="lineNum">     795 </span>            :   // set Rx/Tx fallback mode to STDBY_RC</a>
-<a name="796"><span class="lineNum">     796 </span><span class="lineNoCov">          0 :   data[0] = this-&gt;standbyXOSC ? RADIOLIB_SX126X_RX_TX_FALLBACK_MODE_STDBY_XOSC : RADIOLIB_SX126X_RX_TX_FALLBACK_MODE_STDBY_RC;</span></a>
-<a name="797"><span class="lineNum">     797 </span><span class="lineNoCov">          0 :   state = this-&gt;mod-&gt;SPIwriteStream(RADIOLIB_SX126X_CMD_SET_RX_TX_FALLBACK_MODE, data, 1);</span></a>
-<a name="798"><span class="lineNum">     798 </span><span class="lineNoCov">          0 :   RADIOLIB_ASSERT(state);</span></a>
+<a name="751"><span class="lineNum">     751 </span>            :   // call standby to start the oscillator</a>
+<a name="752"><span class="lineNum">     752 </span><span class="lineNoCov">          0 :   int16_t state = standby();</span></a>
+<a name="753"><span class="lineNum">     753 </span><span class="lineNoCov">          0 :   RADIOLIB_ASSERT(state);</span></a>
+<a name="754"><span class="lineNum">     754 </span>            : </a>
+<a name="755"><span class="lineNum">     755 </span>            :   // update Rx/Tx fallback mode</a>
+<a name="756"><span class="lineNum">     756 </span><span class="lineNoCov">          0 :   uint8_t mode = this-&gt;standbyXOSC ? RADIOLIB_SX126X_RX_TX_FALLBACK_MODE_STDBY_XOSC : RADIOLIB_SX126X_RX_TX_FALLBACK_MODE_STDBY_RC;</span></a>
+<a name="757"><span class="lineNum">     757 </span><span class="lineNoCov">          0 :   return(this-&gt;mod-&gt;SPIwriteStream(RADIOLIB_SX126X_CMD_SET_RX_TX_FALLBACK_MODE, &amp;mode, 1));</span></a>
+<a name="758"><span class="lineNum">     758 </span>            : }</a>
+<a name="759"><span class="lineNum">     759 </span>            : </a>
+<a name="760"><span class="lineNum">     760 </span><span class="lineNoCov">          0 : int16_t SX126x::setPacketMode(uint8_t mode, uint8_t len) {</span></a>
+<a name="761"><span class="lineNum">     761 </span>            :   // check active modem</a>
+<a name="762"><span class="lineNum">     762 </span><span class="lineNoCov">          0 :   if(getPacketType() != RADIOLIB_SX126X_PACKET_TYPE_GFSK) {</span></a>
+<a name="763"><span class="lineNum">     763 </span><span class="lineNoCov">          0 :     return(RADIOLIB_ERR_WRONG_MODEM);</span></a>
+<a name="764"><span class="lineNum">     764 </span>            :   }</a>
+<a name="765"><span class="lineNum">     765 </span>            : </a>
+<a name="766"><span class="lineNum">     766 </span>            :   // set requested packet mode</a>
+<a name="767"><span class="lineNum">     767 </span><span class="lineNoCov">          0 :   int16_t state = setPacketParamsFSK(this-&gt;preambleLengthFSK, this-&gt;preambleDetLength, this-&gt;crcTypeFSK, this-&gt;syncWordLength, RADIOLIB_SX126X_GFSK_ADDRESS_FILT_OFF, this-&gt;whitening, mode, len);</span></a>
+<a name="768"><span class="lineNum">     768 </span><span class="lineNoCov">          0 :   RADIOLIB_ASSERT(state);</span></a>
+<a name="769"><span class="lineNum">     769 </span>            : </a>
+<a name="770"><span class="lineNum">     770 </span>            :   // update cached value</a>
+<a name="771"><span class="lineNum">     771 </span><span class="lineNoCov">          0 :   this-&gt;packetType = mode;</span></a>
+<a name="772"><span class="lineNum">     772 </span><span class="lineNoCov">          0 :   this-&gt;implicitLen = len;</span></a>
+<a name="773"><span class="lineNum">     773 </span><span class="lineNoCov">          0 :   return(state);</span></a>
+<a name="774"><span class="lineNum">     774 </span>            : }</a>
+<a name="775"><span class="lineNum">     775 </span>            : </a>
+<a name="776"><span class="lineNum">     776 </span><span class="lineNoCov">          0 : int16_t SX126x::setHeaderType(uint8_t hdrType, size_t len) {</span></a>
+<a name="777"><span class="lineNum">     777 </span>            :   // check active modem</a>
+<a name="778"><span class="lineNum">     778 </span><span class="lineNoCov">          0 :   if(getPacketType() != RADIOLIB_SX126X_PACKET_TYPE_LORA) {</span></a>
+<a name="779"><span class="lineNum">     779 </span><span class="lineNoCov">          0 :     return(RADIOLIB_ERR_WRONG_MODEM);</span></a>
+<a name="780"><span class="lineNum">     780 </span>            :   }</a>
+<a name="781"><span class="lineNum">     781 </span>            : </a>
+<a name="782"><span class="lineNum">     782 </span>            :   // set requested packet mode</a>
+<a name="783"><span class="lineNum">     783 </span><span class="lineNoCov">          0 :   int16_t state = setPacketParams(this-&gt;preambleLengthLoRa, this-&gt;crcTypeLoRa, len, hdrType, this-&gt;invertIQEnabled);</span></a>
+<a name="784"><span class="lineNum">     784 </span><span class="lineNoCov">          0 :   RADIOLIB_ASSERT(state);</span></a>
+<a name="785"><span class="lineNum">     785 </span>            : </a>
+<a name="786"><span class="lineNum">     786 </span>            :   // update cached value</a>
+<a name="787"><span class="lineNum">     787 </span><span class="lineNoCov">          0 :   this-&gt;headerType = hdrType;</span></a>
+<a name="788"><span class="lineNum">     788 </span><span class="lineNoCov">          0 :   this-&gt;implicitLen = len;</span></a>
+<a name="789"><span class="lineNum">     789 </span>            : </a>
+<a name="790"><span class="lineNum">     790 </span><span class="lineNoCov">          0 :   return(state);</span></a>
+<a name="791"><span class="lineNum">     791 </span>            : }</a>
+<a name="792"><span class="lineNum">     792 </span>            : </a>
+<a name="793"><span class="lineNum">     793 </span><span class="lineNoCov">          0 : int16_t SX126x::setFrequencyRaw(float freq) {</span></a>
+<a name="794"><span class="lineNum">     794 </span>            :   // calculate raw value</a>
+<a name="795"><span class="lineNum">     795 </span><span class="lineNoCov">          0 :   this-&gt;freqMHz = freq;</span></a>
+<a name="796"><span class="lineNum">     796 </span><span class="lineNoCov">          0 :   uint32_t frf = (this-&gt;freqMHz * (uint32_t(1) &lt;&lt; RADIOLIB_SX126X_DIV_EXPONENT)) / RADIOLIB_SX126X_CRYSTAL_FREQ;</span></a>
+<a name="797"><span class="lineNum">     797 </span><span class="lineNoCov">          0 :   return(setRfFrequency(frf));</span></a>
+<a name="798"><span class="lineNum">     798 </span>            : }</a>
 <a name="799"><span class="lineNum">     799 </span>            : </a>
-<a name="800"><span class="lineNum">     800 </span>            :   // set some CAD parameters - will be overwritten when calling CAD anyway</a>
-<a name="801"><span class="lineNum">     801 </span><span class="lineNoCov">          0 :   data[0] = RADIOLIB_SX126X_CAD_ON_8_SYMB;</span></a>
-<a name="802"><span class="lineNum">     802 </span><span class="lineNoCov">          0 :   data[1] = this-&gt;spreadingFactor + 13;</span></a>
-<a name="803"><span class="lineNum">     803 </span><span class="lineNoCov">          0 :   data[2] = RADIOLIB_SX126X_CAD_PARAM_DET_MIN;</span></a>
-<a name="804"><span class="lineNum">     804 </span><span class="lineNoCov">          0 :   data[3] = RADIOLIB_SX126X_CAD_GOTO_STDBY;</span></a>
-<a name="805"><span class="lineNum">     805 </span><span class="lineNoCov">          0 :   data[4] = 0x00;</span></a>
-<a name="806"><span class="lineNum">     806 </span><span class="lineNoCov">          0 :   data[5] = 0x00;</span></a>
-<a name="807"><span class="lineNum">     807 </span><span class="lineNoCov">          0 :   data[6] = 0x00;</span></a>
-<a name="808"><span class="lineNum">     808 </span><span class="lineNoCov">          0 :   state = this-&gt;mod-&gt;SPIwriteStream(RADIOLIB_SX126X_CMD_SET_CAD_PARAMS, data, 7);</span></a>
-<a name="809"><span class="lineNum">     809 </span><span class="lineNoCov">          0 :   RADIOLIB_ASSERT(state);</span></a>
-<a name="810"><span class="lineNum">     810 </span>            : </a>
-<a name="811"><span class="lineNum">     811 </span>            :   // clear IRQ</a>
-<a name="812"><span class="lineNum">     812 </span><span class="lineNoCov">          0 :   state = clearIrqStatus();</span></a>
-<a name="813"><span class="lineNum">     813 </span><span class="lineNoCov">          0 :   state |= setDioIrqParams(RADIOLIB_SX126X_IRQ_NONE, RADIOLIB_SX126X_IRQ_NONE);</span></a>
-<a name="814"><span class="lineNum">     814 </span><span class="lineNoCov">          0 :   RADIOLIB_ASSERT(state);</span></a>
-<a name="815"><span class="lineNum">     815 </span>            : </a>
-<a name="816"><span class="lineNum">     816 </span>            :   // calibrate all blocks</a>
-<a name="817"><span class="lineNum">     817 </span><span class="lineNoCov">          0 :   data[0] = RADIOLIB_SX126X_CALIBRATE_ALL;</span></a>
-<a name="818"><span class="lineNum">     818 </span><span class="lineNoCov">          0 :   state = this-&gt;mod-&gt;SPIwriteStream(RADIOLIB_SX126X_CMD_CALIBRATE, data, 1, true, false);</span></a>
-<a name="819"><span class="lineNum">     819 </span><span class="lineNoCov">          0 :   RADIOLIB_ASSERT(state);</span></a>
-<a name="820"><span class="lineNum">     820 </span>            : </a>
-<a name="821"><span class="lineNum">     821 </span>            :   // wait for calibration completion</a>
-<a name="822"><span class="lineNum">     822 </span><span class="lineNoCov">          0 :   this-&gt;mod-&gt;hal-&gt;delay(5);</span></a>
-<a name="823"><span class="lineNum">     823 </span><span class="lineNoCov">          0 :   while(this-&gt;mod-&gt;hal-&gt;digitalRead(this-&gt;mod-&gt;getGpio())) {</span></a>
-<a name="824"><span class="lineNum">     824 </span><span class="lineNoCov">          0 :     this-&gt;mod-&gt;hal-&gt;yield();</span></a>
-<a name="825"><span class="lineNum">     825 </span>            :   }</a>
-<a name="826"><span class="lineNum">     826 </span>            : </a>
-<a name="827"><span class="lineNum">     827 </span>            :   // check calibration result</a>
-<a name="828"><span class="lineNum">     828 </span><span class="lineNoCov">          0 :   return(this-&gt;mod-&gt;SPIcheckStream());</span></a>
-<a name="829"><span class="lineNum">     829 </span>            : }</a>
-<a name="830"><span class="lineNum">     830 </span>            : </a>
-<a name="831"><span class="lineNum">     831 </span>            : #endif</a>
+<a name="800"><span class="lineNum">     800 </span><span class="lineNoCov">          0 : int16_t SX126x::config(uint8_t modem) {</span></a>
+<a name="801"><span class="lineNum">     801 </span>            :   // reset buffer base address</a>
+<a name="802"><span class="lineNum">     802 </span>            :   int16_t state;</a>
+<a name="803"><span class="lineNum">     803 </span><span class="lineNoCov">          0 :   if(this-&gt;resetOnStartup) {</span></a>
+<a name="804"><span class="lineNum">     804 </span><span class="lineNoCov">          0 :     state = setBufferBaseAddress();</span></a>
+<a name="805"><span class="lineNum">     805 </span><span class="lineNoCov">          0 :     RADIOLIB_ASSERT(state);</span></a>
+<a name="806"><span class="lineNum">     806 </span>            :   }</a>
+<a name="807"><span class="lineNum">     807 </span>            : </a>
+<a name="808"><span class="lineNum">     808 </span>            :   // set modem</a>
+<a name="809"><span class="lineNum">     809 </span>            :   uint8_t data[7];</a>
+<a name="810"><span class="lineNum">     810 </span><span class="lineNoCov">          0 :   data[0] = modem;</span></a>
+<a name="811"><span class="lineNum">     811 </span><span class="lineNoCov">          0 :   state = this-&gt;mod-&gt;SPIwriteStream(RADIOLIB_SX126X_CMD_SET_PACKET_TYPE, data, 1);</span></a>
+<a name="812"><span class="lineNum">     812 </span><span class="lineNoCov">          0 :   RADIOLIB_ASSERT(state);</span></a>
+<a name="813"><span class="lineNum">     813 </span>            : </a>
+<a name="814"><span class="lineNum">     814 </span>            :   // set Rx/Tx fallback mode to STDBY_RC</a>
+<a name="815"><span class="lineNum">     815 </span><span class="lineNoCov">          0 :   data[0] = this-&gt;standbyXOSC ? RADIOLIB_SX126X_RX_TX_FALLBACK_MODE_STDBY_XOSC : RADIOLIB_SX126X_RX_TX_FALLBACK_MODE_STDBY_RC;</span></a>
+<a name="816"><span class="lineNum">     816 </span><span class="lineNoCov">          0 :   state = this-&gt;mod-&gt;SPIwriteStream(RADIOLIB_SX126X_CMD_SET_RX_TX_FALLBACK_MODE, data, 1);</span></a>
+<a name="817"><span class="lineNum">     817 </span><span class="lineNoCov">          0 :   RADIOLIB_ASSERT(state);</span></a>
+<a name="818"><span class="lineNum">     818 </span>            : </a>
+<a name="819"><span class="lineNum">     819 </span>            :   // set some CAD parameters - will be overwritten when calling CAD anyway</a>
+<a name="820"><span class="lineNum">     820 </span><span class="lineNoCov">          0 :   data[0] = RADIOLIB_SX126X_CAD_ON_8_SYMB;</span></a>
+<a name="821"><span class="lineNum">     821 </span><span class="lineNoCov">          0 :   data[1] = this-&gt;spreadingFactor + 13;</span></a>
+<a name="822"><span class="lineNum">     822 </span><span class="lineNoCov">          0 :   data[2] = RADIOLIB_SX126X_CAD_PARAM_DET_MIN;</span></a>
+<a name="823"><span class="lineNum">     823 </span><span class="lineNoCov">          0 :   data[3] = RADIOLIB_SX126X_CAD_GOTO_STDBY;</span></a>
+<a name="824"><span class="lineNum">     824 </span><span class="lineNoCov">          0 :   data[4] = 0x00;</span></a>
+<a name="825"><span class="lineNum">     825 </span><span class="lineNoCov">          0 :   data[5] = 0x00;</span></a>
+<a name="826"><span class="lineNum">     826 </span><span class="lineNoCov">          0 :   data[6] = 0x00;</span></a>
+<a name="827"><span class="lineNum">     827 </span><span class="lineNoCov">          0 :   state = this-&gt;mod-&gt;SPIwriteStream(RADIOLIB_SX126X_CMD_SET_CAD_PARAMS, data, 7);</span></a>
+<a name="828"><span class="lineNum">     828 </span><span class="lineNoCov">          0 :   RADIOLIB_ASSERT(state);</span></a>
+<a name="829"><span class="lineNum">     829 </span>            : </a>
+<a name="830"><span class="lineNum">     830 </span>            :   // clear IRQ</a>
+<a name="831"><span class="lineNum">     831 </span><span class="lineNoCov">          0 :   state = clearIrqStatus();</span></a>
+<a name="832"><span class="lineNum">     832 </span><span class="lineNoCov">          0 :   state |= setDioIrqParams(RADIOLIB_SX126X_IRQ_NONE, RADIOLIB_SX126X_IRQ_NONE);</span></a>
+<a name="833"><span class="lineNum">     833 </span><span class="lineNoCov">          0 :   RADIOLIB_ASSERT(state);</span></a>
+<a name="834"><span class="lineNum">     834 </span>            : </a>
+<a name="835"><span class="lineNum">     835 </span>            :   // calibrate all blocks</a>
+<a name="836"><span class="lineNum">     836 </span><span class="lineNoCov">          0 :   data[0] = RADIOLIB_SX126X_CALIBRATE_ALL;</span></a>
+<a name="837"><span class="lineNum">     837 </span><span class="lineNoCov">          0 :   state = this-&gt;mod-&gt;SPIwriteStream(RADIOLIB_SX126X_CMD_CALIBRATE, data, 1, true, false);</span></a>
+<a name="838"><span class="lineNum">     838 </span><span class="lineNoCov">          0 :   RADIOLIB_ASSERT(state);</span></a>
+<a name="839"><span class="lineNum">     839 </span>            : </a>
+<a name="840"><span class="lineNum">     840 </span>            :   // wait for calibration completion</a>
+<a name="841"><span class="lineNum">     841 </span><span class="lineNoCov">          0 :   this-&gt;mod-&gt;hal-&gt;delay(5);</span></a>
+<a name="842"><span class="lineNum">     842 </span><span class="lineNoCov">          0 :   while(this-&gt;mod-&gt;hal-&gt;digitalRead(this-&gt;mod-&gt;getGpio())) {</span></a>
+<a name="843"><span class="lineNum">     843 </span><span class="lineNoCov">          0 :     this-&gt;mod-&gt;hal-&gt;yield();</span></a>
+<a name="844"><span class="lineNum">     844 </span>            :   }</a>
+<a name="845"><span class="lineNum">     845 </span>            : </a>
+<a name="846"><span class="lineNum">     846 </span>            :   // check calibration result</a>
+<a name="847"><span class="lineNum">     847 </span><span class="lineNoCov">          0 :   return(this-&gt;mod-&gt;SPIcheckStream());</span></a>
+<a name="848"><span class="lineNum">     848 </span>            : }</a>
+<a name="849"><span class="lineNum">     849 </span>            : </a>
+<a name="850"><span class="lineNum">     850 </span>            : #endif</a>
 </pre>
       </td>
     </tr>

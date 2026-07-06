@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2026-05-29 15:31:10</td>
+            <td class="headerValue">2026-07-06 21:53:10</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">5</td>
@@ -124,7 +124,7 @@
 <a name="62"><span class="lineNum">      62 </span>            :   // convert endians</a>
 <a name="63"><span class="lineNum">      63 </span><span class="lineNoCov">          0 :   if(data &amp;&amp; (state == RADIOLIB_ERR_NONE)) {</span></a>
 <a name="64"><span class="lineNum">      64 </span><span class="lineNoCov">          0 :     for(size_t i = 0; i &lt; len; i++) {</span></a>
-<a name="65"><span class="lineNum">      65 </span><span class="lineNoCov">          0 :       data[i] = ((uint32_t)rplBuff[2 + i*sizeof(uint32_t)] &lt;&lt; 24) | ((uint32_t)rplBuff[3 + i*sizeof(uint32_t)] &lt;&lt; 16) | ((uint32_t)rplBuff[4 + i*sizeof(uint32_t)] &lt;&lt; 8) | (uint32_t)rplBuff[5 + i*sizeof(uint32_t)];</span></a>
+<a name="65"><span class="lineNum">      65 </span><span class="lineNoCov">          0 :       data[i] = ((uint32_t)rplBuff[i*sizeof(uint32_t)] &lt;&lt; 24) | ((uint32_t)rplBuff[1 + i*sizeof(uint32_t)] &lt;&lt; 16) | ((uint32_t)rplBuff[2 + i*sizeof(uint32_t)] &lt;&lt; 8) | (uint32_t)rplBuff[3 + i*sizeof(uint32_t)];</span></a>
 <a name="66"><span class="lineNum">      66 </span>            :     }</a>
 <a name="67"><span class="lineNum">      67 </span>            :   }</a>
 <a name="68"><span class="lineNum">      68 </span>            : </a>

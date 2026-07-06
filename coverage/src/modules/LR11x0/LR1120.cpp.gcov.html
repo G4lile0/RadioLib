@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2026-05-29 15:31:10</td>
+            <td class="headerValue">2026-07-06 21:53:10</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">8</td>
@@ -71,7 +71,7 @@
 <a name="9"><span class="lineNum">       9 </span>            : </a>
 <a name="10"><span class="lineNum">      10 </span><span class="lineNoCov">          0 : int16_t LR1120::begin(const ConfigLoRa_t&amp; cfg) {</span></a>
 <a name="11"><span class="lineNum">      11 </span>            :   // execute common part</a>
-<a name="12"><span class="lineNum">      12 </span><span class="lineNoCov">          0 :   int16_t state = LR11x0::begin(cfg.bandwidth, cfg.spreadingFactor, cfg.codingRate, cfg.syncWord, cfg.preambleLength);</span></a>
+<a name="12"><span class="lineNum">      12 </span><span class="lineNoCov">          0 :   int16_t state = LR11x0::begin(cfg.bandwidth, cfg.spreadingFactor, cfg.codingRate, cfg.syncWord, cfg.preambleLength, (cfg.frequency &gt; 1000.0f));</span></a>
 <a name="13"><span class="lineNum">      13 </span><span class="lineNoCov">          0 :   RADIOLIB_ASSERT(state);</span></a>
 <a name="14"><span class="lineNum">      14 </span>            : </a>
 <a name="15"><span class="lineNum">      15 </span>            :   // configure publicly accessible settings</a>
