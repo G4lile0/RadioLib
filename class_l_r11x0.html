@@ -170,7 +170,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a5e8f21878bdab1439805aea1e9da168d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Performs scan for LoRa transmission in the current channel. Detects both preamble and payload.  <br /></td></tr>
 <tr class="separator:a5e8f21878bdab1439805aea1e9da168d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a74c3f3f8409f1fd0f41347b7d3c7dc24" id="r_a74c3f3f8409f1fd0f41347b7d3c7dc24"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_l_r11x0.html#a74c3f3f8409f1fd0f41347b7d3c7dc24">standby</a> () override</td></tr>
-<tr class="memdesc:a74c3f3f8409f1fd0f41347b7d3c7dc24"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the module to standby mode (overload for <a class="el" href="class_physical_layer.html" title="Provides common interface for protocols that run on LoRa/FSK modules, such as RTTY or LoRaWAN....">PhysicalLayer</a> compatibility, uses 13 MHz RC oscillator).  <br /></td></tr>
+<tr class="memdesc:a74c3f3f8409f1fd0f41347b7d3c7dc24"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the module to standby mode (overload for <a class="el" href="class_physical_layer.html" title="Provides common interface for protocols that run on LoRa/FSK modules, such as RTTY or LoRaWAN....">PhysicalLayer</a> compatibility). Uses 13 MHz RC oscillator by default, or external oscillator if standbyXOSC is set to true.  <br /></td></tr>
 <tr class="separator:a74c3f3f8409f1fd0f41347b7d3c7dc24"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9505e4def8c3b06579102ff6ead9139f" id="r_a9505e4def8c3b06579102ff6ead9139f"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_l_r11x0.html#a9505e4def8c3b06579102ff6ead9139f">standby</a> (uint8_t mode) override</td></tr>
 <tr class="memdesc:a9505e4def8c3b06579102ff6ead9139f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the module to standby mode.  <br /></td></tr>
@@ -179,10 +179,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a783496642b56e877e2437bdd2752ee1f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the module to standby mode.  <br /></td></tr>
 <tr class="separator:a783496642b56e877e2437bdd2752ee1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad5dde79f751bbd7ea277872e237f2a69" id="r_ad5dde79f751bbd7ea277872e237f2a69"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_l_r11x0.html#ad5dde79f751bbd7ea277872e237f2a69">sleep</a> () override</td></tr>
-<tr class="memdesc:ad5dde79f751bbd7ea277872e237f2a69"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the module to sleep mode. To wake the device up, call <a class="el" href="class_l_r11x0.html#a74c3f3f8409f1fd0f41347b7d3c7dc24" title="Sets the module to standby mode (overload for PhysicalLayer compatibility, uses 13 MHz RC oscillator)...">standby()</a>. Overload with warm start enabled for <a class="el" href="class_physical_layer.html" title="Provides common interface for protocols that run on LoRa/FSK modules, such as RTTY or LoRaWAN....">PhysicalLayer</a> compatibility.  <br /></td></tr>
+<tr class="memdesc:ad5dde79f751bbd7ea277872e237f2a69"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the module to sleep mode. To wake the device up, call <a class="el" href="class_l_r11x0.html#a74c3f3f8409f1fd0f41347b7d3c7dc24" title="Sets the module to standby mode (overload for PhysicalLayer compatibility). Uses 13 MHz RC oscillator...">standby()</a>. Overload with warm start enabled for <a class="el" href="class_physical_layer.html" title="Provides common interface for protocols that run on LoRa/FSK modules, such as RTTY or LoRaWAN....">PhysicalLayer</a> compatibility.  <br /></td></tr>
 <tr class="separator:ad5dde79f751bbd7ea277872e237f2a69"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad2786a2f17af5769c772ebc73df88e1f" id="r_ad2786a2f17af5769c772ebc73df88e1f"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_l_r11x0.html#ad2786a2f17af5769c772ebc73df88e1f">sleep</a> (bool retainConfig, uint32_t sleepTime)</td></tr>
-<tr class="memdesc:ad2786a2f17af5769c772ebc73df88e1f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the module to sleep mode. To wake the device up, call <a class="el" href="class_l_r11x0.html#a74c3f3f8409f1fd0f41347b7d3c7dc24" title="Sets the module to standby mode (overload for PhysicalLayer compatibility, uses 13 MHz RC oscillator)...">standby()</a>.  <br /></td></tr>
+<tr class="memdesc:ad2786a2f17af5769c772ebc73df88e1f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the module to sleep mode. To wake the device up, call <a class="el" href="class_l_r11x0.html#a74c3f3f8409f1fd0f41347b7d3c7dc24" title="Sets the module to standby mode (overload for PhysicalLayer compatibility). Uses 13 MHz RC oscillator...">standby()</a>.  <br /></td></tr>
 <tr class="separator:ad2786a2f17af5769c772ebc73df88e1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaff9a5b9b7636693c98bd1c93a5863e5" id="r_aaff9a5b9b7636693c98bd1c93a5863e5"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_l_r11x0.html#aaff9a5b9b7636693c98bd1c93a5863e5">finishTransmit</a> () override</td></tr>
 <tr class="memdesc:aaff9a5b9b7636693c98bd1c93a5863e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clean up after transmission is done.  <br /></td></tr>
@@ -334,6 +334,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a1981f0dfceca2b6175a69530ea13d643" id="r_a1981f0dfceca2b6175a69530ea13d643"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_l_r11x0.html#a1981f0dfceca2b6175a69530ea13d643">setRfSwitchTable</a> (const uint32_t(&amp;pins)[<a class="el" href="class_module.html#a0c11551e12579bbabf57b19e12555b3c">Module::RFSWITCH_MAX_PINS</a>], const <a class="el" href="struct_module_1_1_rf_switch_mode__t.html">Module::RfSwitchMode_t</a> table[])</td></tr>
 <tr class="memdesc:a1981f0dfceca2b6175a69530ea13d643"><td class="mdescLeft">&#160;</td><td class="mdescRight">Some modules contain external RF switch controlled by pins. This function gives RadioLib control over those pins to automatically switch between various modes.    <br /></td></tr>
 <tr class="separator:a1981f0dfceca2b6175a69530ea13d643"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3cd3d9990425b46531ac7011f4c7694f" id="r_a3cd3d9990425b46531ac7011f4c7694f"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_l_r11x0.html#a3cd3d9990425b46531ac7011f4c7694f">setStandbyXOSC</a> (bool enable)</td></tr>
+<tr class="memdesc:a3cd3d9990425b46531ac7011f4c7694f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set standby mode to be used. XOSC standby uses more power, but allows faster switching between Rx and Tx modes.  <br /></td></tr>
+<tr class="separator:a3cd3d9990425b46531ac7011f4c7694f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae0a47e772fe24c7b3f3d3288c4cd0941" id="r_ae0a47e772fe24c7b3f3d3288c4cd0941"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_l_r11x0.html#ae0a47e772fe24c7b3f3d3288c4cd0941">forceLDRO</a> (bool enable)</td></tr>
 <tr class="memdesc:ae0a47e772fe24c7b3f3d3288c4cd0941"><td class="mdescLeft">&#160;</td><td class="mdescRight">Forces LoRa low data rate optimization. Only available in LoRa mode. After calling this method, LDRO will always be set to the provided value, regardless of symbol length. To re-enable automatic LDRO configuration, call <a class="el" href="class_l_r11x0.html#aa9a8db401189ba0ce5117512b5db6a58" title="Re-enables automatic LDRO configuration. Only available in LoRa mode. After calling this method,...">LR11x0::autoLDRO()</a>  <br /></td></tr>
 <tr class="separator:ae0a47e772fe24c7b3f3d3288c4cd0941"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -392,6 +395,9 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>clearWiFiScanAction</
 <tr class="memitem:afe8684b336a8137cde591283297a869c" id="r_afe8684b336a8137cde591283297a869c"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_l_r11x0.html#afe8684b336a8137cde591283297a869c">getModem</a> (ModemType_t *modem) override</td></tr>
 <tr class="memdesc:afe8684b336a8137cde591283297a869c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get modem currently in use by the radio.  <br /></td></tr>
 <tr class="separator:afe8684b336a8137cde591283297a869c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adf60821ee7be35c4ec43307de3df8e8f" id="r_adf60821ee7be35c4ec43307de3df8e8f"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_l_r11x0.html#adf60821ee7be35c4ec43307de3df8e8f">getMode</a> (RadioModeType_t *mode) override</td></tr>
+<tr class="memdesc:adf60821ee7be35c4ec43307de3df8e8f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read the operating mode the radio is in, as the chip reports it. Unlike PhysicalLayer::stagedMode, which is what was last asked of the radio, this reads the hardware, so a caller can tell a radio that has left a mode on its own - a receive that did not survive a frame, or a chip that lost its state - from one that is still in it.    <br /></td></tr>
+<tr class="separator:adf60821ee7be35c4ec43307de3df8e8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adc8fbcfff7cd3b801dcee22e87bc2598" id="r_adc8fbcfff7cd3b801dcee22e87bc2598"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_l_r11x0.html#adc8fbcfff7cd3b801dcee22e87bc2598">calibrateImageRejection</a> (float freqMin, float freqMax)</td></tr>
 <tr class="memdesc:adc8fbcfff7cd3b801dcee22e87bc2598"><td class="mdescLeft">&#160;</td><td class="mdescRight">Perform image rejection calibration for the specified frequency band. WARNING: Use at your own risk! Setting incorrect values may lead to decreased performance.  <br /></td></tr>
 <tr class="separator:adc8fbcfff7cd3b801dcee22e87bc2598"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -401,6 +407,12 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>clearWiFiScanAction</
 <tr class="memitem:aaeae4664f6b20a8a88f625b71245480d" id="r_aaeae4664f6b20a8a88f625b71245480d"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_l_r11x0.html#aaeae4664f6b20a8a88f625b71245480d">launchMode</a> () override</td></tr>
 <tr class="memdesc:aaeae4664f6b20a8a88f625b71245480d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Launch previously staged mode.    <br /></td></tr>
 <tr class="separator:aaeae4664f6b20a8a88f625b71245480d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5040569a00401e4c3456af8c18dad6bb" id="r_a5040569a00401e4c3456af8c18dad6bb"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_l_r11x0.html#a5040569a00401e4c3456af8c18dad6bb">writeTxBuffer</a> (const uint8_t *data, size_t len) override</td></tr>
+<tr class="memdesc:a5040569a00401e4c3456af8c18dad6bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write a payload into the transmit buffer without staging or starting a transmission. This allows the payload write, which is the slowest part of starting a transmission, to be done while the radio is busy with something else - during a channel scan, for example. The transmission is staged afterwards by calling stageMode with RADIOLIB_RADIO_MODE_TX and RadioModeConfig_t::transmit.data set to NULL, which sets the packet parameters and the IRQ mapping for the payload already in the buffer; transmit.len must still be set to its length. The buffer holds exactly this payload after the call, whether or not one was written before.    <br /></td></tr>
+<tr class="separator:a5040569a00401e4c3456af8c18dad6bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3ab6665411adac3bad0c58816f2dae3e" id="r_a3ab6665411adac3bad0c58816f2dae3e"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_l_r11x0.html#a3ab6665411adac3bad0c58816f2dae3e">clearTxBuffer</a> () override</td></tr>
+<tr class="memdesc:a3ab6665411adac3bad0c58816f2dae3e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Discard a payload previously written by writeTxBuffer. On radios whose transmit buffer is simply overwritten by the next write there is nothing to discard, and this reports success without touching the radio.    <br /></td></tr>
+<tr class="separator:a3ab6665411adac3bad0c58816f2dae3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a492b2d057dd803c3884fa1adc8e22534" id="r_a492b2d057dd803c3884fa1adc8e22534"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_l_r11x0.html#a492b2d057dd803c3884fa1adc8e22534">transmit</a> (const char *str, uint8_t addr=0)</td></tr>
 <tr class="memdesc:a492b2d057dd803c3884fa1adc8e22534"><td class="mdescLeft">&#160;</td><td class="mdescRight">C-string transmit method.  <br /></td></tr>
 <tr class="separator:a492b2d057dd803c3884fa1adc8e22534"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -963,6 +975,36 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>resetOnStartup</b> = 
 
 </div>
 </div>
+<a id="a3ab6665411adac3bad0c58816f2dae3e" name="a3ab6665411adac3bad0c58816f2dae3e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3ab6665411adac3bad0c58816f2dae3e">&#9670;&#160;</a></span>clearTxBuffer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int16_t LR11x0::clearTxBuffer </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Discard a payload previously written by writeTxBuffer. On radios whose transmit buffer is simply overwritten by the next write there is nothing to discard, and this reports success without touching the radio.   </p>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="group__status__codes.html">Status Codes</a>   </dd></dl>
+
+<p>Reimplemented from <a class="el" href="class_physical_layer.html#a57b6af2da05a4a8b8df2be051b88f42a">PhysicalLayer</a>.</p>
+
+</div>
+</div>
 <a id="ae565dc2423ca7df13bf7ae48cce9ac8b" name="ae565dc2423ca7df13bf7ae48cce9ac8b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae565dc2423ca7df13bf7ae48cce9ac8b">&#9670;&#160;</a></span>disableAddressFiltering()</h2>
 
@@ -1335,6 +1377,43 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>resetOnStartup</b> = 
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd><a class="el" href="group__status__codes.html">Status Codes</a> </dd></dl>
+
+</div>
+</div>
+<a id="adf60821ee7be35c4ec43307de3df8e8f" name="adf60821ee7be35c4ec43307de3df8e8f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adf60821ee7be35c4ec43307de3df8e8f">&#9670;&#160;</a></span>getMode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int16_t LR11x0::getMode </td>
+          <td>(</td>
+          <td class="paramtype">RadioModeType_t *&#160;</td>
+          <td class="paramname"><em>mode</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Read the operating mode the radio is in, as the chip reports it. Unlike PhysicalLayer::stagedMode, which is what was last asked of the radio, this reads the hardware, so a caller can tell a radio that has left a mode on its own - a receive that did not survive a frame, or a chip that lost its state - from one that is still in it.   </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">mode</td><td>Pointer to the variable to save the mode into. A mode the chip reports that has no RadioModeType_t equivalent, frequency synthesis for example, is reported as RADIOLIB_RADIO_MODE_NONE. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="group__status__codes.html">Status Codes</a>   </dd></dl>
+
+<p>Reimplemented from <a class="el" href="class_physical_layer.html#a2eb1c4f1cf4c7989f5c06b1d7085273c">PhysicalLayer</a>.</p>
 
 </div>
 </div>
@@ -3000,6 +3079,33 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>resetOnStartup</b> = 
 
 </div>
 </div>
+<a id="a3cd3d9990425b46531ac7011f4c7694f" name="a3cd3d9990425b46531ac7011f4c7694f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3cd3d9990425b46531ac7011f4c7694f">&#9670;&#160;</a></span>setStandbyXOSC()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int16_t LR11x0::setStandbyXOSC </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>enable</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set standby mode to be used. XOSC standby uses more power, but allows faster switching between Rx and Tx modes. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">enable</td><td>Set to true for XOSC standby, false for RC standby. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="group__status__codes.html">Status Codes</a> </dd></dl>
+
+</div>
+</div>
 <a id="ab8c54b1b105605ffe0908c5ff9362932" name="ab8c54b1b105605ffe0908c5ff9362932"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab8c54b1b105605ffe0908c5ff9362932">&#9670;&#160;</a></span>setSyncWord() <span class="overload">[1/2]</span></h2>
 
@@ -3200,7 +3306,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>resetOnStartup</b> = 
 </table>
 </div><div class="memdoc">
 
-<p>Sets the module to sleep mode. To wake the device up, call <a class="el" href="class_l_r11x0.html#a74c3f3f8409f1fd0f41347b7d3c7dc24" title="Sets the module to standby mode (overload for PhysicalLayer compatibility, uses 13 MHz RC oscillator)...">standby()</a>. Overload with warm start enabled for <a class="el" href="class_physical_layer.html" title="Provides common interface for protocols that run on LoRa/FSK modules, such as RTTY or LoRaWAN....">PhysicalLayer</a> compatibility. </p>
+<p>Sets the module to sleep mode. To wake the device up, call <a class="el" href="class_l_r11x0.html#a74c3f3f8409f1fd0f41347b7d3c7dc24" title="Sets the module to standby mode (overload for PhysicalLayer compatibility). Uses 13 MHz RC oscillator...">standby()</a>. Overload with warm start enabled for <a class="el" href="class_physical_layer.html" title="Provides common interface for protocols that run on LoRa/FSK modules, such as RTTY or LoRaWAN....">PhysicalLayer</a> compatibility. </p>
 <dl class="section return"><dt>Returns</dt><dd><a class="el" href="group__status__codes.html">Status Codes</a> </dd></dl>
 
 <p>Reimplemented from <a class="el" href="class_physical_layer.html#af1bb9a5da26da8829795ebb72e9c666e">PhysicalLayer</a>.</p>
@@ -3233,7 +3339,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>resetOnStartup</b> = 
       </table>
 </div><div class="memdoc">
 
-<p>Sets the module to sleep mode. To wake the device up, call <a class="el" href="class_l_r11x0.html#a74c3f3f8409f1fd0f41347b7d3c7dc24" title="Sets the module to standby mode (overload for PhysicalLayer compatibility, uses 13 MHz RC oscillator)...">standby()</a>. </p>
+<p>Sets the module to sleep mode. To wake the device up, call <a class="el" href="class_l_r11x0.html#a74c3f3f8409f1fd0f41347b7d3c7dc24" title="Sets the module to standby mode (overload for PhysicalLayer compatibility). Uses 13 MHz RC oscillator...">standby()</a>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">retainConfig</td><td>Set to true to retain configuration of the currently active modem ("warm start") or to false to discard current configuration ("cold start"). Defaults to true. </td></tr>
@@ -3316,7 +3422,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>resetOnStartup</b> = 
 </table>
 </div><div class="memdoc">
 
-<p>Sets the module to standby mode (overload for <a class="el" href="class_physical_layer.html" title="Provides common interface for protocols that run on LoRa/FSK modules, such as RTTY or LoRaWAN....">PhysicalLayer</a> compatibility, uses 13 MHz RC oscillator). </p>
+<p>Sets the module to standby mode (overload for <a class="el" href="class_physical_layer.html" title="Provides common interface for protocols that run on LoRa/FSK modules, such as RTTY or LoRaWAN....">PhysicalLayer</a> compatibility). Uses 13 MHz RC oscillator by default, or external oscillator if standbyXOSC is set to true. </p>
 <dl class="section return"><dt>Returns</dt><dd><a class="el" href="group__status__codes.html">Status Codes</a> </dd></dl>
 
 <p>Reimplemented from <a class="el" href="class_physical_layer.html#acbcaf6aefcb77a354797e66222fe5018">PhysicalLayer</a>.</p>
@@ -4196,6 +4302,54 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>resetOnStartup</b> = 
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd><a class="el" href="group__status__codes.html">Status Codes</a> </dd></dl>
+
+</div>
+</div>
+<a id="a5040569a00401e4c3456af8c18dad6bb" name="a5040569a00401e4c3456af8c18dad6bb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5040569a00401e4c3456af8c18dad6bb">&#9670;&#160;</a></span>writeTxBuffer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int16_t LR11x0::writeTxBuffer </td>
+          <td>(</td>
+          <td class="paramtype">const uint8_t *&#160;</td>
+          <td class="paramname"><em>data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>len</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Write a payload into the transmit buffer without staging or starting a transmission. This allows the payload write, which is the slowest part of starting a transmission, to be done while the radio is busy with something else - during a channel scan, for example. The transmission is staged afterwards by calling stageMode with RADIOLIB_RADIO_MODE_TX and RadioModeConfig_t::transmit.data set to NULL, which sets the packet parameters and the IRQ mapping for the payload already in the buffer; transmit.len must still be set to its length. The buffer holds exactly this payload after the call, whether or not one was written before.   </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td>Payload to write into the transmit buffer. </td></tr>
+    <tr><td class="paramname">len</td><td>Payload length in bytes. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="group__status__codes.html">Status Codes</a>   </dd></dl>
+
+<p>Reimplemented from <a class="el" href="class_physical_layer.html#a5bda3635c558544681d9f6a6c32d366c">PhysicalLayer</a>.</p>
 
 </div>
 </div>

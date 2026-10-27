@@ -17,6 +17,7 @@ var class_s_x126x =
     [ "clearIrqFlags", "class_s_x126x.html#ab4c29619a38391805a11231c67424847", null ],
     [ "clearPacketReceivedAction", "class_s_x126x.html#a56f88f6a2b88ae6dbd3ad04b1950e7b2", null ],
     [ "clearPacketSentAction", "class_s_x126x.html#af38ba3d27ab2ac10c703eefa1c428913", null ],
+    [ "clearTxBuffer", "class_s_x126x.html#a76c3408a048e64089dd1c07b3038c1b5", null ],
     [ "explicitHeader", "class_s_x126x.html#a3765f534418d4e0540c179621c019138", null ],
     [ "finishReceive", "class_s_x126x.html#a5a6a7ff321ddb64885380dc2e7208870", null ],
     [ "finishTransmit", "class_s_x126x.html#a8e22d67b64953c8b4da779d87d563f3e", null ],
@@ -27,6 +28,7 @@ var class_s_x126x =
     [ "getFrequencyError", "class_s_x126x.html#a068d709ffb79ae66d718ffb76ffae997", null ],
     [ "getIrqFlags", "class_s_x126x.html#ab4f9b0c6496a796211e9816bf92146a7", null ],
     [ "getLoRaRxHeaderInfo", "class_s_x126x.html#a1631a3b8ce88da58d0a1fb5179319daf", null ],
+    [ "getMode", "class_s_x126x.html#ab8e67ee1ae9b9d10f52e969da70a9350", null ],
     [ "getModem", "class_s_x126x.html#a867b111d21308319e117695051e157ae", null ],
     [ "getPacketLength", "class_s_x126x.html#a121a0c8bc8548b58019c9ccbbe5181c9", null ],
     [ "getPacketLength", "class_s_x126x.html#ac4ef8c8751a3c09d64e431684840c987", null ],
@@ -109,6 +111,7 @@ var class_s_x126x =
     [ "transmitDirect", "class_s_x126x.html#a921aa8afb8d33b2660731c1f8d67664b", null ],
     [ "uploadPatch", "class_s_x126x.html#a2af78b744b3e61d3857bed93c3b1bde1", null ],
     [ "variablePacketLengthMode", "class_s_x126x.html#a92c157efe751b4ae73d22ff44115285d", null ],
+    [ "writeTxBuffer", "class_s_x126x.html#a3a074f8d24453ad6a6ccceddbc83a982", null ],
     [ "standbyXOSC", "group__module__config__vars.html#gae731568798d03d9722a440fd6a23faf2", null ],
     [ "tcxoVoltage", "group__module__config__vars.html#ga8f778ea6a60a20470dd9a4c7be25817c", null ],
     [ "useRegulatorLDO", "group__module__config__vars.html#ga383002c662713c23a00b32deaeb524d1", null ]

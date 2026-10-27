@@ -19,6 +19,7 @@ var class_l_r11x0 =
     [ "calibrateImageRejection", "class_l_r11x0.html#adc8fbcfff7cd3b801dcee22e87bc2598", null ],
     [ "checkDataRate", "class_l_r11x0.html#a902b407443ee3aa11d3c265cccef7366", null ],
     [ "clearIrqFlags", "class_l_r11x0.html#aa524b0be7b8d125c24319072d6178e74", null ],
+    [ "clearTxBuffer", "class_l_r11x0.html#a3ab6665411adac3bad0c58816f2dae3e", null ],
     [ "clearWiFiScanAction", "class_l_r11x0.html#ad5876b44020a0bd59f73186a912dbb60", null ],
     [ "disableAddressFiltering", "class_l_r11x0.html#ae565dc2423ca7df13bf7ae48cce9ac8b", null ],
     [ "explicitHeader", "class_l_r11x0.html#a3693359e5d106d6f57c23247c528cdd5", null ],
@@ -33,6 +34,7 @@ var class_l_r11x0 =
     [ "getGnssSatellites", "class_l_r11x0.html#a97a3f23b796257135a9afd33c28e8ed5", null ],
     [ "getIrqFlags", "class_l_r11x0.html#a205364e65d54f3f87b9b8f5972cdcb99", null ],
     [ "getLoRaRxHeaderInfo", "class_l_r11x0.html#af8e9b885b60a9bae56bb1f59d7d01fd1", null ],
+    [ "getMode", "class_l_r11x0.html#adf60821ee7be35c4ec43307de3df8e8f", null ],
     [ "getModem", "class_l_r11x0.html#afe8684b336a8137cde591283297a869c", null ],
     [ "getPacketLength", "class_l_r11x0.html#af96883b2ca7a36a8921ee1cd222adebf", null ],
     [ "getPacketLength", "class_l_r11x0.html#ac1f541bdee1d983126ceae47940b8f9d", null ],
@@ -78,6 +80,7 @@ var class_l_r11x0 =
     [ "setRxBandwidth", "class_l_r11x0.html#a25f5ee68b3c2638ae613c87ed1c3fc64", null ],
     [ "setRxBoostedGainMode", "class_l_r11x0.html#ab0cf34cc0b67484fbf0f258bff7e9a9a", null ],
     [ "setSpreadingFactor", "class_l_r11x0.html#adf6895cbf7af7e00ea06c5b2b5040cb4", null ],
+    [ "setStandbyXOSC", "class_l_r11x0.html#a3cd3d9990425b46531ac7011f4c7694f", null ],
     [ "setSyncWord", "class_l_r11x0.html#ab8c54b1b105605ffe0908c5ff9362932", null ],
     [ "setSyncWord", "class_l_r11x0.html#aee7dbdbd76f4639395af4a0db17025a7", null ],
     [ "setTCXO", "class_l_r11x0.html#a971b4ccd1d5479e9d72aa9649e8fef55", null ],
@@ -107,5 +110,6 @@ var class_l_r11x0 =
     [ "updateGnssAlmanac", "class_l_r11x0.html#a96aa9566399e46fc03f2b73b44058e3f", null ],
     [ "variablePacketLengthMode", "class_l_r11x0.html#adcd56cf63e91449b6cd03782a69c3451", null ],
     [ "wifiScan", "class_l_r11x0.html#ade5478296ebc7e02281c95609d5d75ab", null ],
+    [ "writeTxBuffer", "class_l_r11x0.html#a5040569a00401e4c3456af8c18dad6bb", null ],
     [ "tcxoVoltage", "group__module__config__vars.html#ga8eff22b47287190493da17e534ce6771", null ]
 ];
